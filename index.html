@@ -3,42 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我的世界</title>
+  <title>Minecraft 随机任务生成器</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, "Microsoft YaHei", sans-serif;
-      background: linear-gradient(135deg, #172554, #0f766e);
-      color: white;
       min-height: 100vh;
       display: grid;
       place-items: center;
+      background: linear-gradient(135deg, #1b4332, #2d6a4f);
+      color: white;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
     }
 
     main {
-      width: min(700px, 85%);
-      text-align: center;
+      width: min(680px, 85%);
       padding: 48px 28px;
-      background: rgba(255, 255, 255, 0.12);
+      text-align: center;
+      background: rgba(0, 0, 0, 0.28);
       border-radius: 24px;
     }
 
     h1 {
-      font-size: 48px;
-      margin: 0 0 16px;
+      font-size: 34px;
     }
 
-    p {
-      font-size: 20px;
-      line-height: 1.8;
+    #task {
+      margin: 28px 0;
+      padding: 24px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 22px;
+      line-height: 1.6;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 24px;
+      background: #f4a261;
+      color: #1f1300;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffd166;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>欢迎来到我的世界</h1>
-    <p>这是我的第一个网页。</p>
-    <p>我正在学习 AI、GitHub 和制作自己的小工具。</p>
+    <h1>⛏ Minecraft 随机任务</h1>
+    <p>不知道做什么？点击按钮抽一个任务。</p>
+
+    <div id="task">准备开始冒险！</div>
+
+    <button onclick="drawTask()">抽取新任务</button>
   </main>
+
+  <script>
+    const tasks = [
+      "收集 64 块橡木，建一间自己的小屋。",
+      "挖到 12 颗钻石。",
+      "驯服一只狼。",
+      "建一座高于 30 格的瞭望塔。",
+      "寻找一个村庄，并保护村民。",
+      "制作一套完整的铁装备。",
+      "去下界收集 8 根烈焰棒。",
+      "种一片至少 30 格的小麦田。"
+    ];
+
+    function drawTask() {
+      const number = Math.floor(Math.random() * tasks.length);
+      document.getElementById("task").textContent = tasks[number];
+    }
+  </script>
 </body>
 </html>
